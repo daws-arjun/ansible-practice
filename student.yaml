@@ -1,0 +1,34 @@
+students:
+  - name: avula nagarjun
+    dob: 05-04-97
+    age: 28
+    addresses:
+      - type: perm
+        doorno: "6-2"
+        street: madiwala
+        pin: "49009"
+      - type: current
+        doorno: "6-2"
+        street: madiwala
+        pin: "49009"
+    skills:
+      - java
+      - devops
+      - cloud
+
+  - name: avula anuarjun
+    dob: 05-04-97
+    age: 28
+    addresses:
+      - type: perm
+        doorno: "6-2"
+        street: madiwala
+        pin: "49009"
+      - type: current
+        doorno: "6-2"
+        street: madiwala
+        pin: "49009"
+    skills:
+      - java
+      - devops
+      - cloud
