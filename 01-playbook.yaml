@@ -1,6 +1,5 @@
 - name: ping the server
-  host: frontend #which server you are connecting (inventory group name is front end)
-  #list of task/collections/modules
+  hosts: frontend  # inventory group name (not "host")
   tasks:
-  - name: ping
-    ansible.builtin.ping:
+    - name: ping
+      ansible.builtin.ping:
