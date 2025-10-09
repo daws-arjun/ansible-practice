@@ -1,0 +1,15 @@
+- name: functions
+  hosts: local
+  connection: local
+  vars:
+    NAME: Nagarjuna
+    techonologies: DevOps, Ansible, shell #string
+  task:
+    - name: default variables
+      ansible.builtin.debug:
+        msg: "Hello, {{ name | default(Arjun)}}"
+        msg: "Hello, {{ name | mandatory}}"
+  task:
+    - name: conver string to list
+      ansible.builtin.debug:
+        msg: "Technologies are: {{ techonologies | split(',') }}"
