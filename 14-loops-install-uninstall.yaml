@@ -11,3 +11,6 @@
         - { name: "nginx", state: "absent" }
         - { name: "mysql", state: "absent" }
         - { name: "zip", state: "latest" }
+
+# Execute command
+# ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 14-loops-install-uninstall.yaml
