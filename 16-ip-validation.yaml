@@ -7,3 +7,7 @@
     - name: Check IP valid or not
       ansible.builtin.debug:
         msg: "{{ ipaddress | ansible.utils.ipv4}}"
+
+
+# Execution Command
+# ansible-playbook -i inventory.ini 16-ip-verification.yaml
