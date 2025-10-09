@@ -3,13 +3,15 @@
   connection: local
   vars:
     NAME: Nagarjuna
-    techonologies: DevOps, Ansible, shell #string
-  task:
+    technologies: "DevOps, Ansible, shell"  # string
+
+  tasks:
     - name: default variables
       ansible.builtin.debug:
-        msg: "Hello, {{ name | default(Arjun)}}"
-        msg: "Hello, {{ NAME | mandatory}}"
-  task:
-    - name: conver string to list
+        msg:
+          - "Hello, {{ name | default('Arjun') }}"
+          - "Hello, {{ NAME | mandatory }}"
+
+    - name: convert string to list
       ansible.builtin.debug:
-        msg: "Technologies are: {{ techonologies | split(',') }}"
+        msg: "Technologies are: {{ technologies | split(',') }}"
