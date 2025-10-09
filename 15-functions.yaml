@@ -1,4 +1,3 @@
----
 - name: functions
   hosts: local
   connection: local
@@ -26,8 +25,41 @@
     - name: Convert comma-separated string to list
       ansible.builtin.debug:
         msg: "Technologies are: {{ technologies | split(',') }}"  # String to list
+
+    - name: Convert dictionary/map to list of items
+      ansible.builtin.debug:
         msg: "Tags are: {{ tags | dict2items }}"       # Dict to list
+
+    - name: Convert list of items to dictionary
+      ansible.builtin.debug:
         msg: "Dictionary tags are: {{ listtags | items2dict }}"   # List to dict
+
+    - name: read yaml and take it into variable
+      ansible.builtin.set_facts:
+        student_yaml: "{{ lookup('file', 'student.yaml')}}"
+    
+    - name: convert yaml into json
+      ansible.builtin.debug: 
+        msg: "json: {{ student_yaml | to_json }}"
+
+    - name: save json to file
+      ansible.builtin.copy:
+        dest: ./student-data.json
+        content: "{{ student_yaml | to_nice_json }}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
