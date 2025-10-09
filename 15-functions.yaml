@@ -8,7 +8,7 @@
     - name: default variables
       ansible.builtin.debug:
         msg: "Hello, {{ name | default(Arjun)}}"
-        msg: "Hello, {{ name | mandatory}}"
+        msg: "Hello, {{ NAME | mandatory}}"
   task:
     - name: conver string to list
       ansible.builtin.debug:
