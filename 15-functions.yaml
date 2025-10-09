@@ -1,14 +1,15 @@
+---
 - name: functions
   hosts: local
   connection: local
   vars:
     NAME: Nagarjuna
-    technologies: "DevOps, Ansible, shell"  # string
-    # dictionary/map
+    technologies: "DevOps, Ansible, shell"  # String variable
+    # Dictionary/Map
     tags:
       Application: payment
       Environment: dev
-    #list tags
+    # List of key-value tag pairs
     listtags:
       - key: Application
         value: payment
@@ -16,23 +17,19 @@
         value: dev
 
   tasks:
-    - name: default variables
+    - name: Show default and mandatory variables
       ansible.builtin.debug:
         msg:
-          - "Hello, {{ name | default('Arjun') }}"    # Providing default values
-          - "Hello, {{ NAME | mandatory }}"           # Defining mandatory values
+          - "Hello, {{ name | default('Arjun') }}"     # Default value if 'name' is undefined
+          - "Hello, {{ NAME | mandatory }}"            # Mandatory variable check
 
-    - name: convert string to list
+    - name: Convert comma-separated string to list
       ansible.builtin.debug:
-        msg: "Technologies are: {{ technologies | split(',') }}"  #Transforming strings into lists
-    
-    - name: conver dictionary/map to list
-      ansible.builtin.debug:
-        msg: "Tags are: {{ tags | dict2items }}"      #Transforming dictionaries into lists
-    
-    - name: convert list tags into Dictionary
-      ansible.builtin.debug:
-        msg: "Dectionary tags are: {{ listtags | items2dict }}"
+        msg: "Technologies are: {{ technologies | split(',') }}"  # String to list
+        msg: "Tags are: {{ tags | dict2items }}"       # Dict to list
+        msg: "Dictionary tags are: {{ listtags | items2dict }}"   # List to dict
+
+
 
 # Command:
 # ansible-playbook -i inventory.ini 15-functions.yaml
