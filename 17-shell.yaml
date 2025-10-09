@@ -2,10 +2,14 @@
   hosts: local
   connection: local
   tasks:
-    - name: commads
+    - name: Run shell command
       ansible.builtin.shell: cat /etc/passwd | grep root
       register: command_output
 
-    - name: print the command_output
+    - name: Print the command output
       ansible.builtin.debug:
-        msg: {{ command_output }}
+        msg: "{{ command_output }}"
+
+
+# Execute command:
+# ansible-playbook -i inventory.ini 17-shell.yaml
