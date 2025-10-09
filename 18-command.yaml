@@ -1,0 +1,15 @@
+- name: execute command and store output
+  hosts: local
+  connection: local
+  tasks:
+    - name: Run  command
+      ansible.builtin.command: ls -ltr
+      register: redirect_output
+
+    - name: Print the command output
+      ansible.builtin.debug:
+        msg: "{{ redirect_output }}"
+
+
+# Execute command:
+# ansible-playbook -i inventory.ini 18-command.yaml
