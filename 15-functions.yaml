@@ -35,7 +35,7 @@
         msg: "Dictionary tags are: {{ listtags | items2dict }}"   # List to dict
 
     - name: read yaml and take it into variable
-      ansible.builtin.set_facts:
+      ansible.builtin.set_fact:
         student_yaml: "{{ lookup('file', 'student.yaml')}}"
     
     - name: convert yaml into json
