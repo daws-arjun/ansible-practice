@@ -8,6 +8,12 @@
     tags:
       Application: payment
       Environment: dev
+    #list tags
+    listtags:
+      - key: Application
+        value: payment
+      - key: Environment
+        value: dev
 
   tasks:
     - name: default variables
@@ -23,6 +29,10 @@
     - name: conver dictionary/map to list
       ansible.builtin.debug:
         msg: "Tags are: {{ tags | dict2items }}"      #Transforming dictionaries into lists
+    
+    - name: convert list tags into Dictionary
+      ansible.builtin.debug:
+        msg: "Dectionary tags are: {{ listtags | items2dict }}"
 
 # Command:
 # ansible-playbook -i inventory.ini 15-functions.yaml
