@@ -4,17 +4,25 @@
   vars:
     NAME: Nagarjuna
     technologies: "DevOps, Ansible, shell"  # string
+    # dictionary/map
+    tags:
+      Application: payment
+      Environment: dev
 
   tasks:
     - name: default variables
       ansible.builtin.debug:
         msg:
-          - "Hello, {{ name | default('Arjun') }}"
-          - "Hello, {{ NAME | mandatory }}"
+          - "Hello, {{ name | default('Arjun') }}"    # Providing default values
+          - "Hello, {{ NAME | mandatory }}"           # Defining mandatory values
 
     - name: convert string to list
       ansible.builtin.debug:
-        msg: "Technologies are: {{ technologies | split(',') }}"
+        msg: "Technologies are: {{ technologies | split(',') }}"  #Transforming strings into lists
+    
+    - name: conver dictionary/map to list
+      ansible.builtin.debug:
+        msg: "Tags are: {{ tags | dict2items }}"      #Transforming dictionaries into lists
 
 # Command:
 # ansible-playbook -i inventory.ini 15-functions.yaml
