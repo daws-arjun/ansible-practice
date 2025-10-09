@@ -47,7 +47,7 @@
         dest: ./student-data.json
         content: "{{ student_yaml | to_nice_json }}"
 
-
+    
 
 
 
